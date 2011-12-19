@@ -25,21 +25,34 @@
     [[[FileEventsController alloc] init] autorelease];    
     
     // Specify the one path that we'll watch.
-    NSString *dmgPathToWatch = @"/Volumes/GrandPerspective 1.3.3";
+    NSString *dmgPathToWatch = @"/Volumes/GobblerKeys";
     self.fileEventsController.filePathsToWatch = 
     [NSArray arrayWithObject:dmgPathToWatch];
-    NSString *filePathToCheckWhenDMGIsThere = 
-    @"/Volumes/GrandPerspective 1.3.3/GrandPerspective.app/Contents/Info.plist";
+	
+    NSString *devFilePathToCheckWhenDMGIsThere = 
+    @"/Volumes/GobblerKeys/ec2/users/mam/keys/key-lab.pem";
+	
+	NSString *prodFilePathToCheckWhenDMGIsThere = 
+    @"/Volumes/GobblerKeys/ec2/users/mam/keys/key-prod.pem";
     
     // This block runs when the folder contains the file we watch is changed.
     FileExistenceBlock fileExistenceBlock = 
     ^(NSString *dmgFilePath, BOOL exists)
     {
+		self.fileLastReportedToExist = NO;
+		self.developmentImage = NO;
+		self.productionImage = NO;
+		
         if (exists)
         {
             NSFileManager *fileManager = [[NSFileManager alloc] init];
-            self.fileLastReportedToExist =
-            [fileManager fileExistsAtPath:filePathToCheckWhenDMGIsThere];
+			if ([fileManager fileExistsAtPath:devFilePathToCheckWhenDMGIsThere]) {
+				self.fileLastReportedToExist = true;
+				self.developmentImage = true;
+			} else if ([fileManager fileExistsAtPath:prodFilePathToCheckWhenDMGIsThere]) {
+				self.fileLastReportedToExist = true;
+				self.productionImage = true;
+			}
             [fileManager release];
         }
         [self updateStatusMenu];
@@ -61,13 +74,16 @@
 // to do.
 - (void)updateStatusMenu
 {
-    if (self.fileLastReportedToExist)
+    if (self.developmentImage)
     {
-        self.statusItem.image = [NSImage imageNamed:@"fileExists.png"];
+        self.statusItem.image = [NSImage imageNamed:@"development_mounted.png"];
     }
+	else if (self.productionImage) {
+		self.statusItem.image = [NSImage imageNamed:@"production_mounted.png"];
+	}
     else
     {
-        self.statusItem.image = [NSImage imageNamed:@"fileDoesNotExist.png"];        
+        self.statusItem.image = [NSImage imageNamed:@"none_mounted.png"];        
     }
 }
 
@@ -82,6 +98,9 @@
 @synthesize fileEventsController;
 //@synthesize statusMessage;
 @synthesize fileLastReportedToExist;
+@synthesize productionImage;
+@synthesize developmentImage;
+
 
 - (void)dealloc
 {

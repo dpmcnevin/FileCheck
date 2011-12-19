@@ -17,5 +17,7 @@
 @property (nonatomic, retain) FileEventsController *fileEventsController;
 //@property (nonatomic, retain) NSString *statusMessage;
 @property (assign) BOOL fileLastReportedToExist; 
+@property (assign) BOOL productionImage; 
+@property (assign) BOOL developmentImage; 
 
 @end

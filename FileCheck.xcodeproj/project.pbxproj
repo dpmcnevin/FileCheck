@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0359C992149ED56300C06D8C /* development_mounted.png in Resources */ = {isa = PBXBuildFile; fileRef = 0359C98F149ED56300C06D8C /* development_mounted.png */; };
+		0359C993149ED56300C06D8C /* none_mounted.png in Resources */ = {isa = PBXBuildFile; fileRef = 0359C990149ED56300C06D8C /* none_mounted.png */; };
+		0359C994149ED56300C06D8C /* production_mounted.png in Resources */ = {isa = PBXBuildFile; fileRef = 0359C991149ED56300C06D8C /* production_mounted.png */; };
 		A643FA9E149ED3D10097435B /* fileDoesNotExist.png in Resources */ = {isa = PBXBuildFile; fileRef = A643FA9C149ED3D10097435B /* fileDoesNotExist.png */; };
 		A643FA9F149ED3D10097435B /* fileExists.png in Resources */ = {isa = PBXBuildFile; fileRef = A643FA9D149ED3D10097435B /* fileExists.png */; };
 		A6506B66149E6C940026D403 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6506B65149E6C940026D403 /* Cocoa.framework */; };
@@ -21,6 +24,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0359C98F149ED56300C06D8C /* development_mounted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = development_mounted.png; sourceTree = "<group>"; };
+		0359C990149ED56300C06D8C /* none_mounted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = none_mounted.png; sourceTree = "<group>"; };
+		0359C991149ED56300C06D8C /* production_mounted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = production_mounted.png; sourceTree = "<group>"; };
 		A643FA9C149ED3D10097435B /* fileDoesNotExist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fileDoesNotExist.png; sourceTree = "<group>"; };
 		A643FA9D149ED3D10097435B /* fileExists.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fileExists.png; sourceTree = "<group>"; };
 		A6506B61149E6C940026D403 /* FileCheck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FileCheck.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,6 +105,9 @@
 			children = (
 				A6506B77149E6C940026D403 /* FCAppDelegate.h */,
 				A6506B78149E6C940026D403 /* FCAppDelegate.m */,
+				0359C98F149ED56300C06D8C /* development_mounted.png */,
+				0359C990149ED56300C06D8C /* none_mounted.png */,
+				0359C991149ED56300C06D8C /* production_mounted.png */,
 				A6506B8F149E750D0026D403 /* FileEventsController.h */,
 				A6506B90149E750D0026D403 /* FileEventsController.m */,
 				A6506B7A149E6C940026D403 /* MainMenu.xib */,
@@ -200,6 +209,9 @@
 				A6506B7C149E6C940026D403 /* MainMenu.xib in Resources */,
 				A643FA9E149ED3D10097435B /* fileDoesNotExist.png in Resources */,
 				A643FA9F149ED3D10097435B /* fileExists.png in Resources */,
+				0359C992149ED56300C06D8C /* development_mounted.png in Resources */,
+				0359C993149ED56300C06D8C /* none_mounted.png in Resources */,
+				0359C994149ED56300C06D8C /* production_mounted.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
